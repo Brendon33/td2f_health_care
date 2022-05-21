@@ -18,7 +18,8 @@ class _addNewPaitentState extends State<addNewPaitent>{
   final TextEditingController _idnumber = new TextEditingController();
   final TextEditingController _idtype = new TextEditingController();
 
- // DateTime dob;
+  DateTime dob= DateTime.now();
+  DateTime time = DateTime.now();
 
  void _showDateTimePicker(){
    showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(1955), lastDate: DateTime.now(),) .then((SelectedDate){
@@ -26,17 +27,25 @@ class _addNewPaitentState extends State<addNewPaitent>{
        return;
      }
      setState(() {
-    //   dob = SelectedDate;
+       dob = SelectedDate;
      });
    });
  }
   void _AppointmentDateTimePicker(){
+   showTimePicker(context: context, initialTime: TimeOfDay.now()) . then((SelectedTime){
+     if(SelectedTime == null){
+       return;
+     }
+     setState(() {
+       time = SelectedTime as DateTime;
+     });
+   });
     showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime.now(), lastDate: DateTime(2040),) .then((SelectedDate){
       if(SelectedDate == null){
         return;
       }
       setState(() {
-        //   dob = SelectedDate;
+           dob = SelectedDate;
       });
     });
   }
@@ -119,7 +128,7 @@ class _addNewPaitentState extends State<addNewPaitent>{
              Container(
               child: Row(
                 children: [
-              //    Text(dob == null ? 'No Date was Selected' : 'DOB: $dob',),
+                  Text(dob == null ? 'No Date was Selected' : 'DOB: $dob',),
                     TextButton(onPressed: _showDateTimePicker,
                         child: Text('Select Date'))
                 ],
@@ -229,9 +238,11 @@ class _addNewPaitentState extends State<addNewPaitent>{
               Container(
                 child: Row(
                 children: [
-                  //    Text(dob == null ? 'No Date was Selected' : 'DOB: $dob',),
+                      Text(dob == null ? 'No Date was Selected' : 'DOB: $dob',
+                          ),
+                  //Text(time == null ? 'No Time Was Selected' : 'time: $time'),
                   TextButton(onPressed:_AppointmentDateTimePicker,
-                      child: Text('Select Appointment Date'))
+                      child: Text('Select Appointment'))
                 ],
               ),
 

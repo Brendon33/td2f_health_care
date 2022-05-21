@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Paitent{
 
-  int PaitentId;
+  int   PaitentId;
   String firstname;
   String lastname;
   String middlename;

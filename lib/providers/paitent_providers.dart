@@ -17,7 +17,7 @@ final baseUrl ='http://10.0.2.2/td2fhealthcare/api/v1/public';
               return paitent;
         }catch(error){
           print(error.toString());
-          throw("Failed to retrieve the list a Paitent");
+          throw("Failed to retrieve the list a Paitents");
         }
     }
 
@@ -35,7 +35,7 @@ Future<Paitent> getPaitentDetails(int id) async{
 
 Future<String> addPaitent(String firstname, String lastname, String middlename,String dob,
     String gender, String email, String address,String phonenumber, String idnumber, String idtype) async{
-    final endPoint = '/Paitent';
+    final endPoint = '/Paitents';
     final url = Uri.parse(baseUrl +endPoint);
 
     try{

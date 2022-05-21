@@ -24,12 +24,19 @@ class MyHomePage extends StatelessWidget{
   Widget build(BuildContext context) {
   return Scaffold(
     appBar: AppBar(
-      title: Text('Appointment'),
+      title: Text('Patient Appointment Scheduler'),
     ),
     body: Container(
       child: ListView(
         children: [
 
+          Container(
+            margin: EdgeInsets.only(right: 30, top: 20, left: 30),
+            child: Image.asset("assets/images/Image3.jpeg",
+              height: 300.0,
+              width: 300.0,
+            ),
+          ),
 
           Container(
       margin: EdgeInsets.only(right: 70, top: 50, left: 70),
